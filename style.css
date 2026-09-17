@@ -1,0 +1,181 @@
+/* «Микроволновый монастырь» — стиль: тёмные тона + неоновый биолюминесцентный свет */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #05080a;
+  color: #cfe8c8;
+  font-family: "Courier New", monospace;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---------- Шапка ---------- */
+.header h1 {
+  font-size: 20px;
+  color: #b6ff5e;
+  text-shadow: 0 0 8px rgba(182, 255, 94, 0.6);
+  letter-spacing: 1px;
+}
+.subtitle {
+  font-size: 11px;
+  color: #5f7a5c;
+  margin-top: 2px;
+}
+
+/* ---------- Статистика ---------- */
+.stats {
+  display: flex;
+  gap: 10px;
+}
+.stat {
+  flex: 1;
+  background: #0b120c;
+  border: 1px solid #1c2b1a;
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+}
+.stat .label {
+  font-size: 10px;
+  color: #5f7a5c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.stat .value {
+  font-size: 20px;
+  color: #d8ffb0;
+}
+.main-stat .value {
+  color: #b6ff5e;
+  text-shadow: 0 0 6px rgba(182, 255, 94, 0.5);
+}
+
+/* ---------- Сцена с канвасом 320×240, масштаб ×3 ---------- */
+.stage {
+  position: relative;
+  align-self: center;
+}
+#game {
+  width: 960px;
+  height: 720px;
+  max-width: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 2px solid #1c2b1a;
+  border-radius: 6px;
+  background: #070b08;
+  cursor: pointer;
+  display: block;
+}
+
+.toast {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(11, 18, 12, 0.95);
+  border: 1px solid #b6ff5e;
+  color: #b6ff5e;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.toast.visible { opacity: 1; }
+
+.saved-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 10px;
+  color: #5f7a5c;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.saved-hint.visible { opacity: 1; }
+
+/* ---------- Апгрейды ---------- */
+.upgrades {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bulk {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.bulk-btn {
+  background: #0b120c;
+  color: #5f7a5c;
+  border: 1px solid #1c2b1a;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 3px 12px;
+  cursor: pointer;
+}
+.bulk-btn.active {
+  color: #b6ff5e;
+  border-color: #b6ff5e;
+}
+
+.upgrade {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #0b120c;
+  border: 1px solid #1c2b1a;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+.upgrade:hover:not(:disabled) {
+  border-color: #b6ff5e;
+  background: #0e160e;
+}
+.upgrade:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.u-icon { font-size: 22px; }
+.u-body { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.u-name { font-size: 14px; color: #d8ffb0; }
+.u-level { font-size: 11px; color: #5f7a5c; font-weight: normal; }
+.u-desc { font-size: 11px; color: #5f7a5c; }
+.u-meta { font-size: 12px; color: #9dbf95; }
+.u-meta b { color: #b6ff5e; }
+.u-meta i { color: #7dffd4; font-style: normal; }
+
+/* ---------- Футер ---------- */
+.footer {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: #5f7a5c;
+  border-top: 1px solid #142013;
+  padding-top: 10px;
+}
+.footer b { color: #9dbf95; }
+.footer .hint { margin-left: auto; }

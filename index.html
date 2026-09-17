@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Микроволновый монастырь — idle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>☢ Микроволновый монастырь</h1>
+      <p class="subtitle">НИИ-«Теплица» · грибы-поглотители радиации · заброшено с 1986</p>
+    </header>
+
+    <section class="stats">
+      <div class="stat main-stat">
+        <span class="label">Споры</span>
+        <span class="value" id="spores">0</span>
+      </div>
+      <div class="stat">
+        <span class="label">Спор / сек</span>
+        <span class="value" id="sps">0</span>
+      </div>
+      <div class="stat">
+        <span class="label">Сила клика</span>
+        <span class="value" id="clickPower">1</span>
+      </div>
+    </section>
+
+    <div class="stage">
+      <canvas id="game" width="320" height="240"></canvas>
+      <div id="offline-toast" class="toast"></div>
+      <div id="saved-hint" class="saved-hint">Сохранено</div>
+    </div>
+
+    <section class="upgrades">
+      <div class="bulk">
+        <button class="bulk-btn active" data-bulk="1">×1</button>
+        <button class="bulk-btn" data-bulk="10">×10</button>
+      </div>
+
+      <button class="upgrade" id="buy-auto">
+        <span class="u-icon">🧫</span>
+        <span class="u-body">
+          <span class="u-name">Споровая колония <span class="u-level">ур. <b id="level-auto">0</b></span></span>
+          <span class="u-desc">+0.15 спор/сек за уровень (умножается удобрением)</span>
+          <span class="u-meta"><b id="cost-auto">15</b> спор · <i id="gain-auto">+0.15/сек</i></span>
+        </span>
+      </button>
+
+      <button class="upgrade" id="buy-click">
+        <span class="u-icon">✂️</span>
+        <span class="u-body">
+          <span class="u-name">Острый секатор <span class="u-level">ур. <b id="level-click">0</b></span></span>
+          <span class="u-desc">+1 к силе клика за уровень (умножается удобрением)</span>
+          <span class="u-meta"><b id="cost-click">50</b> спор · <i id="gain-click">+1 к клику</i></span>
+        </span>
+      </button>
+
+      <button class="upgrade" id="buy-mult">
+        <span class="u-icon">☢️</span>
+        <span class="u-body">
+          <span class="u-name">Удобрение «Атом» <span class="u-level">ур. <b id="level-mult">0</b></span></span>
+          <span class="u-desc">+10% ко ВСЕМУ доходу (и клик, и пассив)</span>
+          <span class="u-meta"><b id="cost-mult">500</b> спор · <i id="gain-mult">+10% ко всему</i></span>
+        </span>
+      </button>
+    </section>
+
+    <footer class="footer">
+      <span>Всего кликов: <b id="totalClicks">0</b></span>
+      <span>Всего спор: <b id="totalSpores">0</b></span>
+      <span class="hint">Кликайте по большому грибу · автосейв каждые 15 с</span>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
